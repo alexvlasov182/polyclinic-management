@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: db
+  username: postgres
+  password: password
+  pool: 5
+
+development:
+  <<: *default
+  database: polyclinic-management_development
+
+test:
+  <<: *default
+  database: polyclinic-management_test
+
+production:
+  <<: *default
+  database: polyclinic-management_production
+  username: postgres
+  password: <%= ENV['NEWOVERTIME_DATABASE_PASSWORD'] %>
