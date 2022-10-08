@@ -23,9 +23,13 @@ gem 'bootsnap', require: false
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'byebug'
-  gem 'rspec-rails', '~> 3.0'
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'factory_bot_rails'
+  gem 'pry-rails'
+  gem 'rails-controller-testing'
+  gem 'rspec-rails', '~> 4.1.0'
+  gem 'shoulda-matchers', '~> 4.0.0rc1'
 end
 
 group :development do
