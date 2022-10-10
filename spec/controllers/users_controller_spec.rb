@@ -26,4 +26,41 @@ RSpec.describe UsersController, type: :controller do
       expect(response).to render_template(:index)
     end
   end
+
+  describe 'GET new' do
+    before { get :new }
+
+    it 'assigns @user' do
+      expect(assigns(:user)).to be_a_new(User)
+    end
+
+    it 'render the new template' do
+      expect(response).to render_template(:new)
+    end
+  end
+
+  describe 'POST create' do
+    subject { post :create, params: params }
+
+    context 'valid params' do
+      let(:params) do
+        {user: {name: 'Alex', email: 'test2@test.com'}}
+      end
+
+      it 'create new user' do
+        expect { subject }.to change(User, :count).from(0).to(1)
+      end
+    end
+
+
+    context 'invalid params' do
+      let(:params) do
+        {user: {name: 'Alex'}}
+      end
+
+      it 'does not create new user' do
+        expect { subject }.not_to change(User, :count)
+      end
+    end
+  end
 end
