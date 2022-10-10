@@ -22,6 +22,8 @@ Metrics/ClassLength:
 # Configuration parameters: CountComments, CountAsOne, ExcludedMethods, IgnoredMethods.
 Metrics/MethodLength:
   Max: 14
+  Exclude:
+    - 'config/initializers/simple_form_bootstrap.rb'
 
 # Offense count: 8
 # Configuration parameters: CountComments, CountAsOne.

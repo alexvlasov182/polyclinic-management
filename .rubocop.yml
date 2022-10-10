@@ -38,6 +38,11 @@ Metrics/MethodLength:
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#short-methods'
   Max: 5
   Enabled: true
+  Exclude:
+      - 'config/initializers/simple_form_bootstrap.rb'
+
+Metrics/BlockLength:
+  Enabled: false
 
 # Style Cops
 
