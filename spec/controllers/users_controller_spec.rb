@@ -40,11 +40,11 @@ RSpec.describe UsersController, type: :controller do
   end
 
   describe 'POST create' do
-    subject { post :create, params: params }
+    subject { post :create, params: }
 
     context 'valid params' do
       let(:params) do
-        {user: {name: 'Alex', email: 'test2@test.com'}}
+        { user: { name: 'Alex', email: 'test2@test.com' } }
       end
 
       it 'create new user' do
@@ -52,10 +52,9 @@ RSpec.describe UsersController, type: :controller do
       end
     end
 
-
     context 'invalid params' do
       let(:params) do
-        {user: {name: 'Alex'}}
+        { user: { name: 'Alex' } }
       end
 
       it 'does not create new user' do

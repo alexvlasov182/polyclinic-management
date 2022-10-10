@@ -172,3 +172,9 @@ Rails/Delegate:
 
 Bundler/OrderedGems:
   Enabled: false
+
+RSpec/NamedSubject:
+  Enabled: false
+
+RSpec/ContextWording:
+  Enabled: false

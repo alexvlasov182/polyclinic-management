@@ -51,7 +51,7 @@ RSpec/AnyInstance:
 # Configuration parameters: Prefixes.
 # Prefixes: when, with, without
 RSpec/ContextWording:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 2414
 # Configuration parameters: CountAsOne.
@@ -87,4 +87,7 @@ RSpec/SubjectStub:
 # Offense count: 12
 Rake/MethodDefinitionInTask:
   Enabled: false
+
+RSpec/NamedSubject:
+  Enabled: true
 
