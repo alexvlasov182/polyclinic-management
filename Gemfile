@@ -48,3 +48,4 @@ end
 gem 'devise', '~> 4.2'
 gem 'simple_form'
 gem 'spring'
+gem 'bootstrap', '~> 5.2', '>= 5.2.1'
