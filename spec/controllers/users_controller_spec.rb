@@ -40,7 +40,7 @@ RSpec.describe UsersController, type: :controller do
   end
 
   describe 'POST create' do
-    subject { post :create, params: parmas }
+    subject { post :create, params: params }
 
     context 'valid params' do
       let(:params) do
