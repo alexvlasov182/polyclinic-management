@@ -62,4 +62,21 @@ RSpec.describe UsersController, type: :controller do
       end
     end
   end
+
+  describe 'GET show' do
+    before { get :show, params: params }
+
+    let(:params) do
+      { id: user.id }
+    end
+    let!(:user) { create(:user) }
+
+    it 'assigns @user' do
+      expect(assigns(:user)).to eq(user)
+    end
+
+    it 'render the show template' do
+      expect(response).to render_template(:show)
+    end
+  end
 end
