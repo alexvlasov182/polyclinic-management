@@ -8,7 +8,7 @@ ps:
 	docker ps
 
 connect_ruby:
-	docker exec -it d6c67acb45db bash
+	docker exec -it 48e256594957 bash
 
 connect_db:
-	docker exec -it 7ae73ec2cbb2 bash
+	docker exec -it 7f6fb67c781f bash

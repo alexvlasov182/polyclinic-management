@@ -132,6 +132,9 @@ Style/TrailingCommaInHashLiteral:
 Style/HashSyntax:
   Enabled: false
 
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
+
 # Layout Cops
 
 Layout/ArgumentAlignment:
