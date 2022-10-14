@@ -1,0 +1,11 @@
+<%= simple_form_for @doctor do |f| %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :city %>
+  <%= f.input :user_name %>
+  <%= f.input :password %>
+  <%= f.input :address %>
+  <%= f.input :primary_practice %>
+  <%= f.input :secondary_practice %>
+  <%= f.button :submit, class: 'btn btn-primary mt-4' %>
+<% end %>
