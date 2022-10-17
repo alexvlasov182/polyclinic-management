@@ -11,4 +11,7 @@ RSpec.describe Doctor, type: :model do
     it { is_expected.to have_db_column(:primary_practice) }
     it { is_expected.to have_db_column(:secondary_practice) }
   end
+
+  it { should have_many(:users) }
+  it { should have_many(:users).through(:appointments) }
 end
