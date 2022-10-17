@@ -2,6 +2,11 @@ class DoctorsController < ApplicationController
   before_action :set_doctor, only: %i[show destroy]
   def index
     @doctors = Doctor.all
+
+    @d1 = Doctor.find(1)
+    @d2 = Doctor.find(2)
+    @d3 = Doctor.find(3)
+    @d6 = Doctor.find(6)
   end
 
   def new
