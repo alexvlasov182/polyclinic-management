@@ -15,6 +15,9 @@
     <th>
       Actions
     </th>
+    <th>
+      Doctors
+    </th>
   </tr>
   </thead>
   <tbody>
@@ -41,3 +44,35 @@
   </tbody>
 </table>
 <%#= paginate @users %>
+
+<h2 class="mt-4">Users's page showing doctors</h2>
+<h4 class="mt-3">This is all the information available for "@u1":</h4>
+<%= @u1.inspect %>
+
+<h4 class="mt-3">This is all the information available for all doctors of "@u1"</h4>
+<%= @u1.doctors.inspect %>
+
+<h4 class="mt-3">This is all the information available for user in the first position(in the collection):</h4>
+<%=	 @u1.doctors[0].inspect %>
+
+<h2>User Name: <%= @u1.name %></h2>
+
+<h3>User <%=	 @u1.name %>'s doctors:</h3>
+
+<%= @u1.doctors[0].first_name %><br>
+<%= @u1.doctors[1]&.first_name %><br>
+<%= @u1.doctors[2]&.first_name %><br>
+<%= @u1.doctors[3]&.first_name %><br>
+
+
+<h2>User Name: <%= @u2.name %></h2>
+
+<h3>Users <%=	 @u2.name %>'s doctors:</h3>
+
+<%=	 @u2.doctors[0].first_name %>
+
+<h2>User Name: <%= @u6.name %></h2>
+
+<h3>User <%=	 @u6.name %>'s doctors:</h3>
+
+<%=	 @u6.doctors[0]&.first_name %>
