@@ -12,8 +12,7 @@ RSpec.describe User, type: :model do
   end
 
   describe 'associations' do
-    it { should have_many(:doctors) }
-    it { should have_many(:doctors).through(:appointments) }
+    it { is_expected.to have_many(:doctors) }
+    it { is_expected.to have_many(:doctors).through(:appointments) }
   end
-
 end

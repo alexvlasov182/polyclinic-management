@@ -2,11 +2,6 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[show destroy]
   def index
     @users = User.all
-
-    @u1 = User.find(1)
-    @u2 = User.find(2)
-    @u3 = User.find(3)
-    @u6 = User.find(6)
   end
 
   def new
