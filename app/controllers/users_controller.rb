@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show destroy]
+  before_action :set_user, only: %i[show destroy update edit]
   def index
     @users = User.all
   end
@@ -18,6 +18,16 @@ class UsersController < ApplicationController
   end
 
   def show; end
+
+  def edit; end
+
+  def update
+    if @user.update(user_params)
+      redirect_to(users_path(@user))
+    else
+      render :edit
+    end
+  end
 
   def destroy
     @user.destroy

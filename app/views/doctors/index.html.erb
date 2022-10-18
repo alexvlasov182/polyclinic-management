@@ -13,8 +13,12 @@
       Lastname
     </th>
     <th>
+      Users
+    </th>
+    <th>
       Actions
     </th>
+
   </tr>
   </thead>
   <tbody>
@@ -30,12 +34,16 @@
         <%= doctor.last_name %>
       </td>
       <td>
+        <%= doctor.users[0]&.name%>
+      </td>
+      <td>
         <%= link_to('Show', doctor_path(doctor), class: 'btn btn-primary') %>
         <%# if user_signed_in? && policy(word).edit? && policy(word).destroy? %>
         <%= link_to('Edit', doctor_path(doctor), class: 'btn btn-warning') %>
         <%= link_to('Delete', doctor_path(doctor), class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure you want to delete this post'},) %>
         <%# end %>
       </td>
+
     </tr>
   <% end %>
   </tbody>
