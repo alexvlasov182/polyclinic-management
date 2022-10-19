@@ -1,13 +1,12 @@
-class CreateDoctors < ActiveRecord::Migration[7.0]
+class CreatePatients < ActiveRecord::Migration[7.0]
   def change
-    create_table :doctors do |t|
+    create_table :patients do |t|
       t.string :first_name
       t.string :last_name
       t.string :city
       t.string :password
       t.string :address
-      t.string :primary_practice
-      t.string :secondary_practice
+      t.string :email
 
       t.timestamps
     end

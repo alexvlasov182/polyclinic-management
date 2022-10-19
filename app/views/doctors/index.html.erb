@@ -34,7 +34,7 @@
         <%= doctor.last_name %>
       </td>
       <td>
-        <%= doctor.users[0]&.name%>
+
       </td>
       <td>
         <%= link_to('Show', doctor_path(doctor), class: 'btn btn-primary') %>
@@ -52,7 +52,6 @@
 <% @doctors.each do |doctor| %>
   <h3>Doctor: <%= doctor.first_name %> <%= doctor.last_name %></h3>
   <p>City: <%= doctor.city %></p>
-  <p>Patient's: <%= doctor.users[0]&.name%></p>
 <% end %>
 
 <%#= paginate @users %>

@@ -5,7 +5,6 @@ RSpec.describe Doctor, type: :model do
     it { is_expected.to have_db_column(:first_name) }
     it { is_expected.to have_db_column(:last_name) }
     it { is_expected.to have_db_column(:city) }
-    it { is_expected.to have_db_column(:user_name) }
     it { is_expected.to have_db_column(:password) }
     it { is_expected.to have_db_column(:address) }
     it { is_expected.to have_db_column(:primary_practice) }
@@ -13,7 +12,7 @@ RSpec.describe Doctor, type: :model do
   end
 
   describe 'associations' do
-    it { is_expected.to have_many(:users) }
-    it { is_expected.to have_many(:users).through(:appointments) }
+    it { is_expected.to have_many(:patients) }
+    it { is_expected.to have_many(:patients).through(:appointments) }
   end
 end
