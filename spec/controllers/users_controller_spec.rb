@@ -118,7 +118,23 @@ RSpec.describe UsersController, type: :controller do
       end
 
       it 'does not create new user' do
-        expect { subject }.not_to change { user.reload.name }
+        expect { subject }.not_to(change { user.reload.name })
+      end
+    end
+  end
+
+  describe 'DELETE destroy' do
+    subject { delete :destroy, params: params }
+
+    let!(:user) { create(:user) }
+
+    context 'valid params' do
+      let(:params) do
+        { id: user.id }
+      end
+
+      it 'delete user' do
+        expect { subject }.to change(User, :count).from(1).to(0)
       end
     end
   end
