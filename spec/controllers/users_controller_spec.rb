@@ -111,5 +111,15 @@ RSpec.describe UsersController, type: :controller do
         expect { subject }.to change { user.reload.name }.from('Alex').to('John')
       end
     end
+
+    context 'invalid params' do
+      let(:params) do
+        { id: user.id, user: { name: '' } }
+      end
+
+      it 'does not create new user' do
+        expect { subject }.not_to change { user.reload.name }
+      end
+    end
   end
 end
