@@ -1,5 +1,5 @@
 class PatientsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: %i[new create]
   before_action :set_patient, only: %i[show destroy update edit]
 
   def index

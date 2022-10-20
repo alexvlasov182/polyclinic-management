@@ -28,37 +28,110 @@ RSpec.describe PatientsController, type: :controller do
   end
 
   describe 'GET new' do
-    before { get :new }
+    context 'when user is signed in' do
+      let(:user) { create(:user) }
 
-    it 'assigns @patient' do
-      expect(assigns(:patient)).to be_a_new(Patient)
+      before do
+        sign_in(user)
+        get :new
+      end
+
+      it 'assigns @patient' do
+        expect(assigns(:patient)).to be_a_new(Patient)
+      end
+
+      it 'render the new template' do
+        expect(response).to render_template(:new)
+      end
+
+      it do
+        expect(response).to have_http_status(:ok)
+      end
     end
 
-    it 'render the new template' do
-      expect(response).to render_template(:new)
+    context 'when user is NOT signed in' do
+      before do
+        get :new
+      end
+
+      it 'does not assign @patient' do
+        expect(assigns(:patient)).to be_nil
+      end
+
+      it 'does not render the new template' do
+        expect(response).not_to render_template(:new)
+      end
+
+      it do
+        expect(response).to have_http_status(:found)
+      end
     end
   end
 
   describe 'POST create' do
     subject { post :create, params: params }
 
-    context 'valid params' do
-      let(:params) do
-        { patient: { first_name: 'Alex', last_name: 'Vlasov', city: 'Zürich', address: '8088 Lone Wolf Trail', email: 'test1@test.com', password: 'password' } }
+    context 'when user is signed in' do
+      let(:user) { create(:user) }
+
+      before { sign_in(user) }
+
+      context 'valid params' do
+        let(:params) do
+          { patient: { first_name: 'Alex', last_name: 'Vlasov', city: 'Zürich', address: '8088 Lone Wolf Trail', email: 'test1@test.com',
+                       password: 'password' } }
+        end
+
+        it 'create new patient' do
+          expect { subject }.to change(Patient, :count).from(0).to(1)
+        end
       end
 
-      it 'create new patient' do
-        expect { subject }.to change(Patient, :count).from(0).to(1)
+      context 'invalid params' do
+        let(:params) do
+          { patient: { first_name: 'Alex' } }
+        end
+
+        it 'does not create new patient' do
+          expect { subject }.not_to change(Patient, :count)
+        end
+
+        it do
+          subject
+          expect(response).to have_http_status(:ok)
+        end
       end
     end
 
-    context 'invalid params' do
-      let(:params) do
-        { patient: { first_name: 'Alex' } }
+    context 'when user is NOT signed in' do
+      context 'valid params' do
+        let(:params) do
+          { patient: { first_name: 'Alex', last_name: 'Vlasov', city: 'Zürich', address: '8088 Lone Wolf Trail', email: 'test1@test.com',
+                       password: 'password' } }
+        end
+
+        it 'does not create new patient' do
+          expect { subject }.not_to change(Patient, :count)
+        end
+
+        it do
+          subject
+          expect(response).to have_http_status(:found)
+        end
       end
 
-      it 'does not create new patient' do
-        expect { subject }.not_to change(Patient, :count)
+      context 'invalid params' do
+        let(:params) do
+          { patient: { first_name: 'Alex' } }
+        end
+
+        it 'does not create new patient' do
+          expect { subject }.not_to change(Patient, :count)
+        end
+
+        it do
+          expect(response).to have_http_status(:ok)
+        end
       end
     end
   end
