@@ -154,19 +154,43 @@ RSpec.describe PatientsController, type: :controller do
   end
 
   describe 'GET edit' do
-    before { get :edit, params: params }
+    subject { get :edit, params: params }
 
     let(:params) do
       { id: patient.id }
     end
     let!(:patient) { create(:patient) }
 
-    it 'assigns @patient' do
-      expect(assigns(:patient)).to eq(patient)
+    context 'when user is signed in' do
+      let(:user) { create(:user) }
+      let(:params) do
+        { id: patient.id }
+      end
+      let!(:patient) { create(:patient) }
+
+      before do
+        sign_in(user)
+        subject
+      end
+
+      it 'assigns @patient' do
+        expect(assigns(:patient)).to eq(patient)
+      end
+
+      it 'render the edit template' do
+        expect(response).to render_template(:edit)
+      end
     end
 
-    it 'render the edit template' do
-      expect(response).to render_template(:edit)
+    context 'when user is NOT signed in' do
+      it 'does not assign @patient' do
+        expect(assigns(:patient)).to be_nil
+      end
+
+      it do
+        subject
+        expect(response).to have_http_status(:found)
+      end
     end
   end
 
@@ -175,23 +199,53 @@ RSpec.describe PatientsController, type: :controller do
 
     let!(:patient) { create(:patient, first_name: 'Alex') }
 
-    context 'valid params' do
-      let(:params) do
-        { id: patient.id, patient: { first_name: 'John', password: 'password' } }
+    context 'when user is signed in' do
+      let(:user) { create(:user) }
+
+      before do
+        sign_in(user)
       end
 
-      it 'updates user' do
-        expect { subject }.to change { patient.reload.first_name }.from('Alex').to('John')
+      context 'valid params' do
+        let(:params) do
+          { id: patient.id, patient: { first_name: 'John', password: 'password' } }
+        end
+
+        it 'updates user' do
+          expect { subject }.to change { patient.reload.first_name }.from('Alex').to('John')
+        end
+      end
+
+      context 'invalid params' do
+        let(:params) do
+          { id: patient.id, patient: { first_name: '' } }
+        end
+
+        it 'does not create new patient' do
+          expect { subject }.not_to(change { patient.reload.first_name })
+        end
       end
     end
 
-    context 'invalid params' do
-      let(:params) do
-        { id: patient.id, patient: { first_name: '' } }
+    context 'when user is NOT signed in' do
+      context 'valid params' do
+        let(:params) do
+          { id: patient.id, patient: { first_name: 'John', password: 'password' } }
+        end
+
+        it 'does not update patient' do
+          expect { subject }.not_to(change { patient.reload.first_name })
+        end
       end
 
-      it 'does not create new patient' do
-        expect { subject }.not_to(change { patient.reload.first_name })
+      context 'invalid params' do
+        let(:params) do
+          { id: patient.id, patient: { first_name: '' } }
+        end
+
+        it 'does not create new patient' do
+          expect { subject }.not_to(change { patient.reload.first_name })
+        end
       end
     end
   end
@@ -201,13 +255,33 @@ RSpec.describe PatientsController, type: :controller do
 
     let!(:patient) { create(:patient) }
 
-    context 'valid params' do
-      let(:params) do
-        { id: patient.id }
+    context 'when user is signed in' do
+      let(:user) { create(:user) }
+
+      before do
+        sign_in(user)
       end
 
-      it 'delete patient' do
-        expect { subject }.to change(Patient, :count).from(1).to(0)
+      context 'valid params' do
+        let(:params) do
+          { id: patient.id }
+        end
+
+        it 'delete patient' do
+          expect { subject }.to change(Patient, :count).from(1).to(0)
+        end
+      end
+    end
+
+    context 'when user is NOT signed in' do
+      context 'valid params' do
+        let(:params) do
+          { id: patient.id }
+        end
+
+        it 'does not delete patient' do
+          expect { subject }.not_to change(Patient, :count)
+        end
       end
     end
   end
