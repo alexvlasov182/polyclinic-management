@@ -78,4 +78,6 @@ a9.save
 a10 = Appointment.new(doctor_id:3, patient_id:10)
 a10.save
 
-p "Created #{Patient.count} patient"
+p "Created #{ Patient.count } patients"
+p "Created #{ Doctor.count } doctors"
+p "Created #{ Appointment.count } appointments"
