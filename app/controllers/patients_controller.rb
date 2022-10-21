@@ -21,7 +21,9 @@ class PatientsController < ApplicationController
 
   def show; end
 
-  def edit; end
+  def edit
+    # authorize @patient
+  end
 
   def update
     if @patient.update(patient_params)
