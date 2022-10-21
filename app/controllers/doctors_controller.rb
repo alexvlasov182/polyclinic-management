@@ -2,7 +2,7 @@ class DoctorsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_doctor, only: %i[show destroy]
   def index
-    @doctors = Doctor.all
+    @doctors = Doctor.page(params[:page])
   end
 
   def new

@@ -187,3 +187,6 @@ RSpec/ContextWording:
 
 RSpec/NestedGroups:
   Max: 5
+
+Rails/I18nLocaleTexts:
+  Enabled: false
