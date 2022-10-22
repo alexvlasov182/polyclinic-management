@@ -19,6 +19,12 @@
       User(main)
     </th>
     <th>
+      City
+    </th>
+    <th>
+      Primary Practice
+    </th>
+    <th>
       Actions
     </th>
 
@@ -44,6 +50,12 @@
       </td>
       <td>
         <%= doctor.user&.email %>
+      </td>
+      <td>
+        <%= doctor.city %>
+      </td>
+      <td>
+        <%= doctor.primary_practice %>
       </td>
       <td>
         <%= link_to('Show', doctor_path(doctor), class: 'btn btn-primary') %>
