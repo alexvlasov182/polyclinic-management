@@ -14,5 +14,6 @@ RSpec.describe Doctor, type: :model do
   describe 'associations' do
     it { is_expected.to have_many(:patients) }
     it { is_expected.to have_many(:patients).through(:appointments) }
+    it { is_expected.to belong_to(:user) }
   end
 end

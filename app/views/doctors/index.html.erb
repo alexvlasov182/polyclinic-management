@@ -16,6 +16,9 @@
       Patients
     </th>
     <th>
+      User(main)
+    </th>
+    <th>
       Actions
     </th>
 
@@ -40,9 +43,12 @@
         <%= doctor.patients[3]&.first_name%>
       </td>
       <td>
+        <%= doctor.user&.email %>
+      </td>
+      <td>
         <%= link_to('Show', doctor_path(doctor), class: 'btn btn-primary') %>
         <%# if user_signed_in? && policy(word).edit? && policy(word).destroy? %>
-        <%= link_to('Edit', doctor_path(doctor), class: 'btn btn-warning') %>
+        <%= link_to('Edit', edit_doctor_path(doctor), class: 'btn btn-warning') %>
         <%= link_to('Delete', doctor_path(doctor), class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure you want to delete this post'},) %>
         <%# end %>
       </td>

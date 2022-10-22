@@ -1,6 +1,10 @@
 <%= simple_nested_form_for @doctor do |f| %>
   <%= f.input :first_name %>
   <%= f.input :last_name %>
+  <%= f.input :city %>
+  <%= f.input :address %>
+  <%= f.input :primary_practice %>
+  <%= f.input :secondary_practice %>
   <h3 class="mt-3">Add another doctor<span class="subtitle-patient">(medical staff)</span></h3>
   <%= f.button :submit, class: 'btn btn-primary mt-4' %>
 <% end %>

@@ -7,6 +7,7 @@ gem 'rails', '~> 7.0.3', '>= 7.0.3.1'
 gem 'sprockets-rails'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 5.0'
+gem 'pundit'
 gem 'importmap-rails'
 gem 'turbo-rails'
 gem 'jquery-rails'
@@ -15,6 +16,15 @@ gem 'turbolinks', '~> 5'
 gem 'stimulus-rails'
 gem 'jbuilder'
 gem 'redis', '~> 4.0'
+
+gem 'devise', '~> 4.2'
+gem 'simple_form'
+gem 'spring'
+gem 'bootstrap', '~> 5.2', '>= 5.2.1'
+gem 'kaminari'
+gem 'bundler-audit'
+gem 'brakeman'
+gem 'nested_form'
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
@@ -45,13 +55,3 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
-
-gem 'devise', '~> 4.2'
-gem 'simple_form'
-gem 'spring'
-gem 'bootstrap', '~> 5.2', '>= 5.2.1'
-gem 'pundit'
-gem 'kaminari'
-gem 'bundler-audit'
-gem 'brakeman'
-gem 'nested_form'
