@@ -1,5 +1,5 @@
 class PatientsController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create edit update destroy]
+  before_action :authenticate_user!, only: %i[new create update edit destroy]
   before_action :set_patient, only: %i[show destroy update edit]
 
   def index
@@ -12,6 +12,7 @@ class PatientsController < ApplicationController
 
   def create
     @patient = Patient.new(patient_params)
+    #@patient.user = current_user
     if @patient.save
       redirect_to(patients_path)
     else
@@ -41,7 +42,7 @@ class PatientsController < ApplicationController
   private
 
   def patient_params
-    params.require(:patient).permit(:first_name, :last_name, :email, :city, :address)
+    params.require(:patient).permit(:first_name, :last_name, :email, :city, :address, :password, doctors_attributes: [:id, :first_name, :last_name, :city, :address, :password, :primary_practice, :secondary_practice, :_destroy])
   end
 
   def set_patient

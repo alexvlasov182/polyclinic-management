@@ -19,12 +19,12 @@ gem 'redis', '~> 4.0'
 
 gem 'devise', '~> 4.2'
 gem 'simple_form'
+gem 'nested_form'
 gem 'spring'
 gem 'bootstrap', '~> 5.2', '>= 5.2.1'
 gem 'kaminari'
 gem 'bundler-audit'
 gem 'brakeman'
-gem 'nested_form'
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 

@@ -4,5 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_one :doctor
+  has_one :patient, dependent: :destroy
+  has_one :doctor, dependent: :destroy
+
 end
