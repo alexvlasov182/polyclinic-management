@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe PatientsController, type: :controller do
+RSpec.describe PatientsController do
   describe 'GET index' do
     before { get :index }
 

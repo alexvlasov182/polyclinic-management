@@ -6,24 +6,24 @@ class PatientsController < ApplicationController
     @patients = Patient.page(params[:page])
   end
 
+  def show; end
+
   def new
     @patient = Patient.new
   end
 
+  def edit
+    # authorize @patient
+  end
+
   def create
     @patient = Patient.new(patient_params)
-    #@patient.user = current_user
+    # @patient.user = current_user
     if @patient.save
       redirect_to(patients_path)
     else
       render :new
     end
-  end
-
-  def show; end
-
-  def edit
-    # authorize @patient
   end
 
   def update
@@ -42,7 +42,25 @@ class PatientsController < ApplicationController
   private
 
   def patient_params
-    params.require(:patient).permit(:first_name, :last_name, :email, :city, :address, :password, doctors_attributes: [:id, :first_name, :last_name, :city, :address, :password, :primary_practice, :secondary_practice, :_destroy])
+    params.require(:patient).permit(
+        :first_name,
+        :last_name,
+        :email,
+        :city,
+        :address,
+        :password,
+        doctors_attributes: [
+          :id,
+          :first_name,
+          :last_name,
+          :city,
+          :address,
+          :password,
+          :primary_practice,
+          :secondary_practice,
+          :_destroy,
+        ],
+      )
   end
 
   def set_patient
