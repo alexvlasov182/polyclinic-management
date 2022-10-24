@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Doctor, type: :model do
+RSpec.describe Doctor do
   describe 'columns' do
     it { is_expected.to have_db_column(:first_name) }
     it { is_expected.to have_db_column(:last_name) }
@@ -14,6 +14,6 @@ RSpec.describe Doctor, type: :model do
   describe 'associations' do
     it { is_expected.to have_many(:patients) }
     it { is_expected.to have_many(:patients).through(:appointments) }
-    it { is_expected.to belong_to(:user) }
+    # it { is_expected.to belong_to(:user) }
   end
 end

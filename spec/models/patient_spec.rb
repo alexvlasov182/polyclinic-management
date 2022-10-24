@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Patient, type: :model do
+RSpec.describe Patient do
   describe 'columns' do
     it { is_expected.to have_db_column(:first_name) }
     it { is_expected.to have_db_column(:last_name) }
