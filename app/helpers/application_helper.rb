@@ -5,6 +5,7 @@ module ApplicationHelper
       error: 'alert-danger',
       alert: 'alert-warning',
       notice: 'alert-success',
+      primary: 'alert-primary',
     }.stringify_keys[flash_type.to_s] || flash_type.to_s
   end
 

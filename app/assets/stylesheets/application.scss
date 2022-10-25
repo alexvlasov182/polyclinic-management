@@ -15,6 +15,11 @@
   font-weight: normal;
 }
 
-.btn {
-  --bs-btn-padding-x: 0.50rem !important;
+
+.register-login {
+  display: block;
+  margin: 0 auto;
+  padding: 20px 20px 60px 20px;
+  border-radius: 4px 4px 4px 4px;
+  box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.1);
 }

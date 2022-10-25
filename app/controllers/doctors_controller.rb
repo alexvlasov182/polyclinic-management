@@ -22,6 +22,7 @@ class DoctorsController < ApplicationController
     @doctor = Doctor.new(doctor_params)
     # @doctor.user = current_user
     if @doctor.save
+      flash[:notice] = 'Doctor was successfully created'
       redirect_to(doctors_path)
     else
       render :new
@@ -30,6 +31,7 @@ class DoctorsController < ApplicationController
 
   def update
     if @doctor.update(doctor_params)
+      flash[:notice] = 'Doctor was successfully updated'
       redirect_to(doctors_path(@doctor))
     else
       render :edit
@@ -38,6 +40,7 @@ class DoctorsController < ApplicationController
 
   def destroy
     @doctor.destroy
+    flash[:error] = 'Doctor was successfully deleted'
     redirect_to(doctors_path)
   end
 

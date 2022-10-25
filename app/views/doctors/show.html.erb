@@ -1,4 +1,16 @@
-<h1>User</h1>
+<h1>Doctor Information<span class="subtitle-patient">(medical staff)</span></h1>
 
-<p>User: <%= @doctor.first_name%></p>
-<p>Email: <%= @doctor.last_name%></p>
+<div class="card mb-3" style="max-width: 760px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <%= image_tag "https://upload.wikimedia.org/wikipedia/en/thumb/0/0b/HouseGregoryHouse.png/250px-HouseGregoryHouse.png", height: 280 %>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h2 class="card-title"><%= @doctor.first_name%> <%= @doctor.last_name%></h2>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+  </div>
+</div>
