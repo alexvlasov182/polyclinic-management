@@ -15,7 +15,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'stimulus-rails'
 gem 'jbuilder'
-#gem 'redis', '~> 4.0'
+# gem 'redis', '~> 4.0'
 
 gem 'devise', '~> 4.2'
 gem 'simple_form'
