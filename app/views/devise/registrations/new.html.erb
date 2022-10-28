@@ -1,30 +1,35 @@
-<div class="row">
-  <div class="col-md-4 register-login">
-
-    <h2>Sign up</h2>
+<div class="background-form">
+  <div class="form-signin">
+    <%= image_tag "biplane.svg", height: 100, class: 'login-img' %>
+    <h2 class="h3 mb-3 font-weight-normal text-center">Sign up</h2>
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
 
-      <div class="form-inputs">
         <%= f.input :email,
-                    required: true,
+                    required: false,
                     autofocus: true,
-                    input_html: { autocomplete: "email" }%>
+                    label: false,
+                    input_html: { autocomplete: "email" }, placeholder: 'Email address' %>
         <%= f.input :password,
-                    required: true,
+                    required: false,
+                    label: false,
                     hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                    input_html: { autocomplete: "new-password" } %>
+                    input_html: { autocomplete: "new-password" },
+                    placeholder: 'Password', class: 'sr-only'
+                                                                %>
         <%= f.input :password_confirmation,
-                    required: true,
-                    input_html: { autocomplete: "new-password" } %>
-      </div>
+                    required: false,
+                    input_html: { autocomplete: "new-password" },
+                    placeholder: 'Password confirmation', class: 'sr-only'
 
+                                                                %>
       <div class="form-actions">
         <%= f.button :submit, "Sign up", class: 'btn btn-primary' %>
       </div>
     <% end %>
 
     <%= render "devise/shared/links" %>
+    <%=	 link_to 'Go back', root_path %>
   </div>
 </div>
