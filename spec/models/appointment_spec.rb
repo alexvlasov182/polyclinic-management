@@ -1,5 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe Appointment, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe Appointment do
+  subject do
+    create(:user)
+    create(:category)
+    create(:doctor)
+    create(:appointment)
+  end
+
+  it 'is valid with valid attributes' do
+    expect(subject).to be_valid
+  end
 end

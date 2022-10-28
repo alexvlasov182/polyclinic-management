@@ -1,5 +1,15 @@
 require 'rails_helper'
 
-RSpec.describe Prescription, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe Prescription do
+  subject do
+    create(:category)
+    create(:doctor)
+    create(:user)
+    create(:appointment)
+    create(:prescription)
+  end
+
+  it 'is valid with valid attributes' do
+    expect(subject).to be_valid
+  end
 end

@@ -9,7 +9,7 @@ class Doctor < ApplicationRecord
   has_many :users, through: :appointments
   has_one_attached :attachment
 
-  validates :phone, presence: true, uniqueness: true
+  validates :phone, presence: true # TODO: my be add to database unique: true?
   validates :full_name, presence: true
 
   def email_required?
