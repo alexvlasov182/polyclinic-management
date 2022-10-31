@@ -1,0 +1,35 @@
+<div class="background-form">
+  <div class="form-signin">
+    <%= image_tag "biplane.svg", height: 100, class: 'login-img' %>
+    <h1 class="h3 mb-3 font-weight-normal text-center">Please sign in</h1>
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-inputs">
+        <%= f.input :full_name,
+                    required: false,
+                    autofocus: true,
+                    label: false,
+                    input_html: { autocomplete: "Email address" }, class: 'sr-only', placeholder: 'Full name' %>
+        <%= f.input :phone,
+                    required: false,
+                    autofocus: true,
+                    label: false,
+                    input_html: { autocomplete: "Email address" }, class: 'sr-only', placeholder: 'Phone number' %>
+        <%= f.input :email,
+                    required: false,
+                    autofocus: true,
+                    label: false,
+                    input_html: { autocomplete: "Email address" }, class: 'sr-only', placeholder: 'Email address' %>
+        <%= f.input :password,
+                    required: false,
+                    label: false,
+                    input_html: { autocomplete: "current-password" }, class: 'sr-only', placeholder: 'Password' %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Log in", class: 'btn btn-lg btn-primary btn-block mt-3' %>
+      </div>
+    <% end %>
+    <%= render "devise/shared/links" %>
+    <%=	 link_to 'Go back', root_path %>
+  </div>
+</div>

@@ -1,6 +1,4 @@
-
 <div class="background-form">
-  <!--<form class="form-signin">-->
   <div class="form-signin">
     <%= image_tag "biplane.svg", height: 100, class: 'login-img' %>
     <h1 class="h3 mb-3 font-weight-normal text-center">Please sign in</h1>
@@ -31,19 +29,7 @@
         <%= f.button :submit, "Log in", class: 'btn btn-lg btn-primary btn-block mt-3' %>
       </div>
     <% end %>
-    <!--<label for="inputEmail" class="sr-only">Email address</label>-->
-    <!--<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>-->
-    <!--<label for="inputPassword" class="sr-only">Password</label>-->
-    <!--<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>-->
-    <!--<div class="checkbox mb-3">-->
-      <!--<label>-->
-        <!--<input type="checkbox" value="remember-me"> Remember me-->
-      <!--</label>-->
-    <!--</div>-->
-    <!--<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>-->
-  <!--</form>-->
     <%= render "devise/shared/links" %>
     <%=	 link_to 'Go back', root_path %>
   </div>
 </div>
-

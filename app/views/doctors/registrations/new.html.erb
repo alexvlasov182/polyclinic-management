@@ -1,0 +1,50 @@
+<div class="background-form">
+  <div class="form-signin">
+    <%= image_tag "biplane.svg", height: 100, class: 'login-img' %>
+    <h2 class="h3 mb-3 font-weight-normal text-center">Sign up</h2>
+
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
+      <%= f.input :full_name,
+                  required: false,
+                  autofocus: true,
+                  label: false,
+                  input_html: { autocomplete: "name" }, placeholder: 'Full name' %>
+      <%#= f.input :category_id,
+                       required: false,
+                       autofocus: true,
+                       label: false,
+                       input_html: { autocomplete: "name" }, placeholder: 'Category ID' %>
+      <%= f.input :phone,
+                  required: false,
+                  autofocus: true,
+                  label: false,
+                  input_html: { autocomplete: "phone" }, placeholder: 'Phone number' %>
+      <%= f.input :email,
+                  required: false,
+                  autofocus: true,
+                  label: false,
+                  input_html: { autocomplete: "email" }, placeholder: 'Email address' %>
+      <%= f.input :password,
+                  required: false,
+                  label: false,
+                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                  input_html: { autocomplete: "new-password" },
+                  placeholder: 'Password', class: 'sr-only'
+      %>
+      <%#= f.input :password_confirmation,
+                  label: false,
+                  required: false,
+                  input_html: { autocomplete: "new-password" },
+                  placeholder: 'Password confirmation', class: 'sr-only'
+
+      %>
+      <div class="form-actions">
+        <%= f.button :submit, "Sign up", class: 'btn btn-primary btn-lg btn-block mt-3' %>
+      </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
+    <%=	 link_to 'Go back', root_path %>
+  </div>
+</div>

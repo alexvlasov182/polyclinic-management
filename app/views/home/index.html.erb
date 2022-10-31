@@ -1,7 +1,6 @@
 <%= render 'shared/navbar' %>
 <main role="main">
 
-  <!-- Main jumbotron for a primary marketing message or call to action -->
   <div class="jumbotron">
     <div class="container">
       <h1 class="display-3 text-center main-title">Welcome to our Polyclinic Management system, dear guest!</h1>
@@ -12,23 +11,21 @@
         From pediatrics, family practice and internal medicine doctors to specialists and surgeons, we offer a single doorway to meeting your health care needs. Our care teams work closely together with one goal in mind — doing what’s right for you.</p>
       <div class="col text-center">
         <%= link_to "Patient Siginup", new_user_registration_path, class: 'btn btn-primary' %>
-        <!--<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>-->
       </div>
     </div>
   </div>
 
   <div class="container">
-    <!-- Example row of columns -->
     <div class="row">
       <div class="col-md-4 card-body">
         <h2>For Patient</h2>
         <p>A patient is any recipient of health care services that are performed by healthcare professionals. The patient is most often ill or injured and in need of treatment by a physician, nurse, optometrist, dentist, veterinarian, or other health care provider. </p>
-        <%= link_to "Patient Signin", new_user_session_path, class: 'btn btn-info' %>
+        <%= link_to "Patient Signin", user_session_path, class: 'btn btn-info' %>
       </div>
       <div class="col-md-4 card-body">
         <h2>For Doctors</h2>
         <p>A doctor is someone who is experienced and certified to practice medicine to help maintain or restore physical and mental health. A doctor is tasked with interacting with patients, diagnosing medical problems and successfully treating illness or injury.</p>
-        <%= link_to "Doctor Signin", new_doctor_session_path, class: 'btn btn-info' %>
+        <%= link_to "Doctor Signin", doctor_session_path, class: 'btn btn-info' %>
       </div>
       <div class="col-md-4 card-body">
         <h2>For Admins</h2>
@@ -39,7 +36,7 @@
 
     <hr>
 
-  </div> <!-- /container -->
+  </div>
 
 </main>
 

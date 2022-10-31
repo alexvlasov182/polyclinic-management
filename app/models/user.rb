@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :appointments, dependent: :destroy
   has_many :doctors, through: :appointments
 
-  validates :phone, presence: true # TODO: my be add to database unique: true?
+  validates :phone, presence: true, uniqueness: true
   validates :full_name, presence: true
 
   def email_required?
