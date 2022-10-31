@@ -22,7 +22,5 @@ Rails.application.routes.draw do
   # devise_for :users
   # devise_for :doctors
   # devise_for :admin_users
-  
   root 'home#index'
-
 end
