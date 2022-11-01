@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-
-
   devise_for :admin_users, controllers: {
     sessions: 'admin_users/sessions',
     passwords: 'admin_users/passwords',
@@ -19,8 +17,21 @@ Rails.application.routes.draw do
     registrations: 'doctors/registrations',
   }
 
-  # devise_for :users
-  # devise_for :doctors
-  # devise_for :admin_users
+  resources :users
+  resources :doctors
+  resources :admin_users
+
+  authenticated :admin_user do
+    root 'admin_users#index', as: :authenticated_admin_user_root
+  end
+
+  authenticated :user do
+    root 'users#index', as: :authenticated_user_root
+  end
+
+  authenticated :doctor do
+    root 'doctors#index', as: :authenticated_doctor_root
+  end
+
   root 'home#index'
 end

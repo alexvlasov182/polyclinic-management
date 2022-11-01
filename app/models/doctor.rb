@@ -9,7 +9,7 @@ class Doctor < ApplicationRecord
   has_one_attached :attachment
 
   validates :phone, presence: true, uniqueness: true
-  validates :full_name, :email, presence: true
+  validates :full_name, :email, :phone, presence: true
 
   def email_required?
     false
