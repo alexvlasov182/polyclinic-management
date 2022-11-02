@@ -25,6 +25,8 @@ gem 'bootstrap', '~> 4.1.3'
 gem 'kaminari'
 gem 'bundler-audit'
 gem 'brakeman'
+gem 'administrate'
+gem 'bourbon'
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 

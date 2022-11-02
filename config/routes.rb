@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :prescriptions
+    resources :categories
+    resources :appointments
+    resources :doctors
+    resources :users
+    resources :admin_users
+
+    root to: 'admin_users#index'
+  end
+
+  get 'admin_users/index'
+  get 'admin_users/show'
+
   devise_for :admin_users, controllers: {
     sessions: 'admin_users/sessions',
     passwords: 'admin_users/passwords',
