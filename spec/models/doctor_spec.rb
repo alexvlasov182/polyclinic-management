@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Doctor do
   subject do
-    # create(:category)
+    create(:category)
     create(:doctor)
   end
 
@@ -20,10 +20,10 @@ RSpec.describe Doctor do
     expect(subject).not_to be_valid
   end
 
-  # it 'is not valid without a category' do
-  #   subject.category_id = nil
-  #   expect(subject).not_to be_valid
-  # end
+  it 'is not valid without a category' do
+    subject.category_id = nil
+    expect(subject).not_to be_valid
+  end
 
   it 'is not valid if the phone number is not 10 chars' do
     expect(subject.phone.length).to eq(10)
