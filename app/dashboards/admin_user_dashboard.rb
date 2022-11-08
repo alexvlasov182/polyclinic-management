@@ -18,6 +18,8 @@ class AdminUserDashboard < Administrate::BaseDashboard
     reset_password_token: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
+    password: Field::String,
+    password_confirmation: Field::String
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -58,6 +60,8 @@ class AdminUserDashboard < Administrate::BaseDashboard
     remember_created_at
     reset_password_sent_at
     reset_password_token
+    password
+    password_confirmation
   ].freeze
 
   # COLLECTION_FILTERS
