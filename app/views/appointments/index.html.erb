@@ -1,0 +1,20 @@
+<%=	link_to 'Back', user_path(@user.id), class: "btn btn-primary btn-lg" %>
+
+<h1 class="display-3 text-center main-title mt-4">All Appointments</h1>
+
+<div class="row featurette card-body">
+  <div class="col-md-7">
+    <h2 class="">Hello Dear <%= current_user.full_name%> <span class="text-muted">It'll blow your mind.</span></h2>
+    <% if @appointments.blank? %>
+      <p>You don't have any appointment</p>
+    <% else %>
+      <% @appointments.each do |appointment| %>
+        <p>You have appointment at <strong><%= appointment.appointment_date.to_s(:custom_datetime) %></strong>
+          with doctor <strong><% appointment.doctor.full_name %></strong>
+        </p>
+
+      <% end %>
+
+    <% end %>
+  </div>
+</div>

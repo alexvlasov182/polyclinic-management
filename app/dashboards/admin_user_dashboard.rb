@@ -19,7 +19,7 @@ class AdminUserDashboard < Administrate::BaseDashboard
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     password: Field::String,
-    password_confirmation: Field::String
+    password_confirmation: Field::String,
   }.freeze
 
   # COLLECTION_ATTRIBUTES

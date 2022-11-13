@@ -110,6 +110,20 @@ body {
   justify-content: space-between;
 }
 
+.user-chips {
+  background-color: #007BFF;
+  color: white;
+  padding: 4px;
+  border-radius: 4px 4px 4px 4px;
+}
+
+.doctor-chips {
+  background-color: #17A2B8;
+  padding: 4px;
+  color: white;
+  border-radius: 4px 4px 4px 4px;
+}
+
 @media (min-width: 40em) {
   .carousel-caption p {
     margin-bottom: 1.25rem;

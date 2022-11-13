@@ -33,6 +33,8 @@ Rails.application.routes.draw do
 
   resources :users
   resources :doctors
+  resources :appointments
+  resources :prescriptions
   resources :admin_users
 
   authenticated :admin_user do
