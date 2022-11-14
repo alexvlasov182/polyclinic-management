@@ -4,11 +4,11 @@ class AppointmentsController < ApplicationController
   def index
     @user = current_user || current_doctor
     @appointments = @user.appointments
-    @appointments = @user.appointments.find_by(params[:id])
+    @appointment = @user.appointments.find_by(params[:id])
     if @appointments.blank?
       nil
     else
-      @prescription = @appointments.prescription
+      @prescription = @appointment.prescription
     end
   end
 
@@ -24,7 +24,15 @@ class AppointmentsController < ApplicationController
     @appointment = current_user.appointments.new(doctor: doctor)
   end
 
-  def create; end
+  def create
+    @appointment = current_user.appointments.new(appointment_params)
+    if @appointment.save
+      redirect_to @appointment
+      flash.now[:notice] = 'Your appointment was successfully created'
+    else
+      render :new, alert: 'An error has occurred while creating an appointment'
+    end
+  end
 
   def destroy; end
 

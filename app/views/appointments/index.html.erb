@@ -1,20 +1,46 @@
 <%=	link_to 'Back', user_path(@user.id), class: "btn btn-primary btn-lg" %>
 
-<h1 class="display-3 text-center main-title mt-4">All Appointments</h1>
+<h1 class="display-3 text-center main-title mt-4">All appointments</h1>
 
 <div class="row featurette card-body">
-  <div class="col-md-7">
-    <h2 class="">Hello Dear <%= current_user.full_name%> <span class="text-muted">It'll blow your mind.</span></h2>
+  <div class="col-md-12">
+    <h2 class="display-5 font-italic">Hello dear <%= current_user.full_name%> <span class="text-muted">It'll blow your mind.</span></h2>
     <% if @appointments.blank? %>
       <p>You don't have any appointment</p>
     <% else %>
       <% @appointments.each do |appointment| %>
-        <p>You have appointment at <strong><%= appointment.appointment_date.to_s(:custom_datetime) %></strong>
-          with doctor <strong><% appointment.doctor.full_name %></strong>
+        <table class="table">
+          <thead>
+          <tr>
+            <th class="table-success">Descriptions</th>
+            <th class="table-danger">Your Date</th>
+            <th class="table-warning">Name your Doctor</th>
+            <th class="table-success">Email your Doctor</th>
+            <th class="table-danger">Email your Doctor</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td class="table-success">
+              <%=  %>Your appointment
+            </td>
+            <td class="table-danger">
+              <%= appointment.appointment_date.to_s(:custom_datetime) %>
+            </td>
+            <td class="table-warning">
+              <%= appointment.doctor.full_name %>
+            </td>
+            <td class="table-success">
+              <%= appointment.doctor.email %>
+            </td>
+            <td class="table-danger">
+              <%= appointment.doctor.phone %>
+            </td>
+          </tr>
+          </tbody>
+        </table>
         </p>
-
       <% end %>
-
     <% end %>
   </div>
 </div>

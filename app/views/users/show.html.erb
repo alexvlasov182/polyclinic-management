@@ -4,12 +4,12 @@
 
   <section class="jumbotron text-center">
     <div class="container">
-      <h1 class="display-3">Patient's Profile</h1>
+      <h1 class="display-3">Patient's profile</h1>
       <h2>Dear <%= @user.full_name %>!</h2>
       <p class="lead ">Here you can choose a specialist, appoint a meeting with him and get his recommendations</p>
       <p>
         <%= link_to('Back', root_path, class: 'btn btn-secondary my-2') %>
-        <%= link_to('My Appointments', appointments_path, class: 'btn btn-primary' ) %>
+        <%= link_to('My appointments', appointments_path, class: 'btn btn-primary' ) %>
       </p>
     </div>
   </section>
