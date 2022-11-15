@@ -4,15 +4,46 @@
 
   <section class="jumbotron text-center">
     <div class="container">
-      <h1 class="display-3">Patient's Profile</h1>
-      <h2>Dear <%= current_doctor.full_name%>!</h2>
-      <p class="lead">Here you can choose a specialist, appoint a meeting with him and get his recommendations</p>
+      <h1 class="display-3">Doctor's profile</h1>
+      <h2>Dear doctor <%= current_doctor.full_name%>!</h2>
+      <p class="lead">please,
+        serve opened appointments</p>
       <p>
         <%= link_to('Back', root_path, class: 'btn btn-secondary my-2') %>
         <%= link_to('My Appointments', appointments_path, class: 'btn btn-primary' ) %>
       </p>
     </div>
   </section>
+
+  <h2 class="text-center mb-3 font-italic">Appointments</h2>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row">
+        <%= @appointments.each do |appointment| %>
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <%= image_tag "user-empty.png", height: 200, class: 'login-img' %>
+              <div class="card-body">
+                <p class="card-text"><span class="user-chips">User</span> <%= appointment.appointment_date %></p>
+                <p class="card-text">Email: <%= appointment.user_id %></p>
+
+                <p class="card-text">Appointments: <%= appointment.doctor_id %></p>
+                <p>
+                  <%#= link_to('Arrange an appointment', new_appointment_path(user_id: user.id), class: 'btn btn-primary') %>
+                </p>
+
+                <small class="">9 mins</small>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="text-center mt-4 mb-3 font-italic">All users</h2>
 
   <div class="album py-5 bg-light">
     <div class="container">
@@ -28,7 +59,7 @@
 
                 <p class="card-text">Appointments: <%= user.appointments&.count %></p>
                 <p>
-                  <%= link_to('Arrange an appointment', new_appointment_path(user_id: user.id), class: 'btn btn-primary') %>
+                  <%#= link_to('Arrange an appointment', new_appointment_path(user_id: user.id), class: 'btn btn-primary') %>
                 </p>
 
                 <small class="">9 mins</small>
