@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :prescription do
+  factory :prescriptions do
     prescript { Faker::Lorem.characters }
     appointment
   end

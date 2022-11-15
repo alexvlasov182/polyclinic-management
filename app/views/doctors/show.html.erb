@@ -4,40 +4,65 @@
 
   <section class="jumbotron text-center">
     <div class="container">
-      <h1 class="display-3">Patient's Profile</h1>
-      <h2>Dear <%= current_doctor.full_name%>!</h2>
-      <p class="lead">Here you can choose a specialist, appoint a meeting with him and get his recommendations</p>
+      <h1 class="display-3">Doctor's profile</h1>
+      <h2>Dear doctor <%= current_doctor.full_name%>!</h2>
+      <p class="lead">Work please with opened appointments</p>
       <p>
         <%= link_to('Back', root_path, class: 'btn btn-secondary my-2') %>
-        <%= link_to('My Appointments', appointments_path, class: 'btn btn-primary' ) %>
+        <%= link_to('Prescriptions', prescriptions_path, class: 'btn btn-primary' ) %>
       </p>
     </div>
   </section>
 
-  <div class="album py-5 bg-light">
-    <div class="container">
 
-      <div class="row">
-        <% @users.each do |user| %>
-          <div class="col-md-4">
-            <div class="card mb-4 box-shadow">
-              <%= image_tag "user-empty.png", height: 200, class: 'login-img' %>
-              <div class="card-body">
-                <p class="card-text"><span class="user-chips">User</span> <%= user.full_name %></p>
-                <p class="card-text">Email: <%= user.email %></p>
+  <div class="container">
+    <div class="row featurette card-body mb-4">
+      <div class="col-md-12">
+        <h1 class="text-center mb-4">All appointments</h1>
 
-                <p class="card-text">Appointments: <%= user.appointments&.count %></p>
-                <p>
-                  <%= link_to('Arrange an appointment', new_appointment_path(user_id: user.id), class: 'btn btn-primary') %>
-                </p>
+        <%	if @appointments.blank? %>
+          <h4 class="font-italic">You don't have any appointment</h4>
+        <%	else %>
+          <div class="album py-5 bg-light">
+            <div class="container">
+              <div class="row">
+                <% @appointments.each do |appointment| %>
+                  <% if appointment.prescription %>
+                    <div class="col-md-4">
+                      <div class="card mb-4 box-shadow">
+                        <div class="card-body">
+                          <h4 class="mx-1"><strong>Prescription</strong></h4>
+                          <p class="pt-3"> <strong>Appointment Status: </strong> <strong class="text-danger">Closed</strong> </p>
+                          <p class="card-text"> <strong>User: </strong> <%= appointment.user.full_name %></p>
+                          <p class="card-text"> <strong>Appointment date: </strong> <%= appointment.appointment_date.to_s(:long) %></p>
+                          <%= link_to('Edit', prescription_path(appointment.prescription.id), class: 'btn btn-outline-secondary my-2') %>
+                          <br>
+                          <small class="font-italic text-grey"><%= distance_of_time_in_words(appointment.created_at, Time.now) %> ago</small>
 
-                <small class="">9 mins</small>
+                        </div>
+                      </div>
+                    </div>
+                  <% else %>
+                    <div class="col-md-4">
+                      <div class="card mb-4 box-shadow">
+                        <div class="card-body">
+                          <h4 class="mx-1"><strong>Prescription</strong></h4>
+                          <p class="mt-4"> <span >Appointment Status:</span> <strong class="text-primary">Opened</strong></p>
+                          <p class="card-text"> <span>User:</span> <%= appointment.user.full_name %></p>
+                          <p class="card-text"> <span>Appointment date:</span> <%= appointment.appointment_date.to_s(:long) %></p>
+                          <%= link_to('Create', new_prescription_path(appointment_id: appointment.id), class: 'btn btn-primary my-2') %>
+                          <br>
+                          <small class="font-italic text-grey"><%= distance_of_time_in_words(appointment.created_at, Time.now) %> ago</small>
+                        </div>
+                      </div>
+                    </div>
+                  <% end %>
+                <% end %>
               </div>
             </div>
           </div>
-        <% end %>
+        <%	end %>
       </div>
     </div>
   </div>
-
 </main>
