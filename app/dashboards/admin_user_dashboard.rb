@@ -32,7 +32,6 @@ class AdminUserDashboard < Administrate::BaseDashboard
     full_name
     email
     encrypted_password
-    full_name
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
