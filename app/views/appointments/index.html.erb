@@ -13,19 +13,22 @@
           <thead>
           <tr>
             <th class="table-success">Descriptions</th>
-            <th class="table-danger">Your Date</th>
-            <th class="table-warning">Name your Doctor</th>
-            <th class="table-success">Email your Doctor</th>
-            <th class="table-danger">Email your Doctor</th>
+            <th class="table-danger">Your date</th>
+            <th class="table-warning">Name your doctor</th>
+            <th class="table-success">Email your doctor</th>
+            <th class="table-warning">Phone your doctor</th>
+            <th class="table-danger">Cancel appointments</th>
           </tr>
           </thead>
           <tbody>
           <tr>
             <td class="table-success">
-              <%=  %>Your appointment
+              <%=  %> Appointment
+
             </td>
             <td class="table-danger">
-              <%= appointment.appointment_date.to_s(:custom_datetime) %>
+              <%= appointment.appointment_date.to_s(:long) %>
+
             </td>
             <td class="table-warning">
               <%= appointment.doctor.full_name %>
@@ -33,8 +36,13 @@
             <td class="table-success">
               <%= appointment.doctor.email %>
             </td>
-            <td class="table-danger">
+            <td class="table-warning">
               <%= appointment.doctor.phone %>
+            </td>
+            <td class="table-danger">
+              <div class="cancel-appointment">
+                <%= button_to "Cancel this appointment", @appointment, 'method': :delete, class: 'btn btn-danger text-light rounded-2 my-2' %>
+              </div>
             </td>
           </tr>
           </tbody>

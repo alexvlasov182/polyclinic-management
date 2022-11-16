@@ -60,7 +60,7 @@ class PrescriptionDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how prescriptions are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(prescription)
-  #   "Prescription ##{prescription.id}"
+  # def display_resource(prescriptions)
+  #   "Prescription ##{prescriptions.id}"
   # end
 end

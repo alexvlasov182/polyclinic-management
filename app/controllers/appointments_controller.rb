@@ -34,7 +34,11 @@ class AppointmentsController < ApplicationController
     end
   end
 
-  def destroy; end
+  def destroy
+    @appointment = Appointment.find(params[:id])
+    @appointment.destroy!
+    redirect_to appointments_path(current_user.id), notice: 'Appointment was canceled successfully'
+  end
 
   private
 

@@ -8,13 +8,13 @@ class AppointmentDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    id: Field::Number,
-    appointment_date: Field::DateTime,
-    doctor: Field::BelongsTo,
-    prescription: Field::HasOne,
-    user: Field::BelongsTo,
-    created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+      id: Field::Number,
+      appointment_date: Field::DateTime,
+      doctor: Field::BelongsTo,
+      prescription: Field::HasOne,
+      user: Field::BelongsTo,
+      created_at: Field::DateTime,
+      updated_at: Field::DateTime,
   }.freeze
 
   # COLLECTION_ATTRIBUTES

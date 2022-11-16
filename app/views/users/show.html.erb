@@ -9,31 +9,32 @@
       <p class="lead ">Here you can choose a specialist, appoint a meeting with him and get his recommendations</p>
       <p>
         <%= link_to('Back', root_path, class: 'btn btn-secondary my-2') %>
-        <%= link_to('My appointments', appointments_path, class: 'btn btn-primary' ) %>
+        <%= link_to('Appointments', appointments_path, class: 'btn btn-primary' ) %>
       </p>
     </div>
   </section>
 
-  <h2 class="text-center">Select your doctor</h2>
 
-  <div class="album py-5 bg-light">
+
+  <div class="album pt-4 bg-light">
     <div class="container">
-
+      <h2 class="text-center mb-4">Select your doctor</h2>
       <div class="row">
+
         <% @doctors.each do |doctor| %>
         <div class="col-md-4">
           <div class="card mb-4 box-shadow">
             <%= image_tag "user-empty.png", height: 200, class: 'login-img' %>
             <div class="card-body">
-              <p class="card-text"><span class="doctor-chips">Doctor</span> <%= doctor.full_name %></p>
-              <p class="card-text">Category: <%= doctor.category&.name %></p>
+              <p class="card-text"><strong>Doctor:</strong> <%= doctor.full_name %></p>
+              <p class="card-text"><strong>Category:</strong> <%= doctor.category&.name %></p>
 
-              <p class="card-text">Appointments: <%= doctor.appointments&.count %></p>
+              <p class="card-text"> <strong>Appointments:</strong> <%= doctor.appointments&.count %></p>
               <p>
                 <%= link_to('Arrange an appointment', new_appointment_path(doctor_id: doctor.id), class: 'btn btn-primary') %>
               </p>
 
-                <small class="">9 mins</small>
+                <small class="font-italic text-grey"><%= distance_of_time_in_words(doctor.created_at, Time.now) %> ago</small>
             </div>
           </div>
         </div>

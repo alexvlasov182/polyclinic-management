@@ -1,4 +1,4 @@
-<h1 class="display-3 text-center main-title mt-4">Admins Public Page</h1>
+<h1 class="display-3 text-center main-title mt-4">Admins public page</h1>
 
 <ul class="navbar-nav mt-5 text-right">
   <% if user_signed_in? %>
@@ -17,16 +17,16 @@
 </ul>
 <div class="row featurette card-body mt-4">
   <div class="col-md-7">
-    <h2 class="featurette-heading">Hello Dear <%= current_admin_user.full_name%> <span class="text-muted">It'll blow your mind.</span></h2>
+    <h2 class="featurette-heading">Hello dear <%= current_admin_user.full_name%> <span class="text-muted">It'll blow your mind.</span></h2>
     <p class="lead">A system administrator, or sysadmin, or admin is a person who is responsible for the upkeep, configuration, and reliable operation of computer systems, especially multi-user computers, such as servers </p>
     <div class="custom-btn-image">
-      <%= link_to "Enter Your Profile", admin_user_path(@admin), class: "btn btn-success btn-lg text-white" %>
+      <%= link_to "Enter your profile", admin_admin_user_path(@admin), class: "btn btn-success btn-lg text-white" %>
     </div>
   </div>
   <div class="col-md-5">
     <%= image_tag "user-empty.png", height: 400, class: 'login-img' %>
     <div class="">
-      <%= link_to "Upload image", admin_user_path(@admin), class: "btn btn-primary btn-lg btn-block" %>
+      <%= link_to "Upload image", admin_admin_user_path(@admin), class: "btn btn-primary btn-lg btn-block" %>
     </div>
   </div>
 
