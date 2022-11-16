@@ -32,10 +32,15 @@ class PrescriptionsController < ApplicationController
     end
   end
 
+  def destroy
+    @prescription = Prescription.find(params[:id])
+    @prescription.destroy!
+    redirect_to prescriptions_path(current_doctor.id), notice: 'Recommendation was deleted'
+  end
+
   private
 
   def prescription_params
     params.require(:prescription).permit(:prescript, :appointment_id)
   end
-
 end

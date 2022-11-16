@@ -34,7 +34,7 @@
                           <h4 class="mx-1"><strong>Prescription</strong></h4>
                           <p class="pt-3"> <strong>Appointment Status: </strong> <strong class="text-danger">Closed</strong> </p>
                           <p class="card-text"> <strong>User: </strong> <%= appointment.user.full_name %></p>
-                          <p class="card-text"> <strong>Appointment date: </strong> <%= appointment.appointment_date.to_s(:long) %></p>
+                          <p class="card-text"> <strong>Appointment date: </strong> <%= appointment.appointment_date&.to_s(:long) %></p>
                           <%= link_to('Edit', prescription_path(appointment.prescription.id), class: 'btn btn-outline-secondary my-2') %>
                           <br>
                           <small class="font-italic text-grey"><%= distance_of_time_in_words(appointment.created_at, Time.now) %> ago</small>
@@ -49,7 +49,7 @@
                           <h4 class="mx-1"><strong>Prescription</strong></h4>
                           <p class="mt-4"> <span >Appointment Status:</span> <strong class="text-primary">Opened</strong></p>
                           <p class="card-text"> <span>User:</span> <%= appointment.user.full_name %></p>
-                          <p class="card-text"> <span>Appointment date:</span> <%= appointment.appointment_date.to_s(:long) %></p>
+                          <p class="card-text"> <span>Appointment date:</span> <%= appointment.appointment_date&.to_s(:long) %></p>
                           <%= link_to('Create', new_prescription_path(appointment_id: appointment.id), class: 'btn btn-primary my-2') %>
                           <br>
                           <small class="font-italic text-grey"><%= distance_of_time_in_words(appointment.created_at, Time.now) %> ago</small>

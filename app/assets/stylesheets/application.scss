@@ -132,6 +132,12 @@ body {
   color: #999999;
 }
 
+.cancel-appointment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media (min-width: 40em) {
   .carousel-caption p {
     margin-bottom: 1.25rem;
