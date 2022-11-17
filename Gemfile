@@ -31,6 +31,8 @@ gem 'carrierwave', '~> 1.0'
 gem 'carrierwave-aws', '~> 1.0', '>= 1.0.2'
 gem 'mini_magick', '~> 4.6'
 gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
+gem 'cancan'
+gem 'cancancan'
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 

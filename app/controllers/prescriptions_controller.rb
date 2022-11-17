@@ -1,4 +1,5 @@
 class PrescriptionsController < ApplicationController
+  before_action :authenticate_doctor!, only: %i[create destroy]
 
   def index
     @user = current_doctor

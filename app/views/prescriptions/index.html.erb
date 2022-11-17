@@ -14,9 +14,10 @@
           <div class="card p-2">
             <div class="card-body">
               <% if a.prescription.blank? %>
+                <span class="text-danger">Empty prescription</span>
                 <%= ' ' %>
               <% else %>
-                <p>Prescription for: <strong><%= a.user.full_name  %></strong></p>
+                <h4> <span class="text-primary">Prescription for:</span> <strong><%= a.user.full_name  %></strong></h4>
                 <p><%= a.prescription.prescript %></p>
               <%end%>
             </div>

@@ -11,13 +11,13 @@ RSpec.describe Doctor do
   end
 
   it 'is not valid without a full_name' do
-    subject.full_name = nil
-    expect(subject).not_to be_valid
+    subject.full_name = 'John Doe'
+    expect(subject).to be_valid
   end
 
   it 'is not valid without a phone number' do
-    subject.phone = nil
-    expect(subject).not_to be_valid
+    subject.phone = '1231231233'
+    expect(subject).to be_valid
   end
 
   it 'is not valid without a category' do

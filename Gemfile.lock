@@ -111,6 +111,8 @@ GEM
       bundler (>= 1.2.0, < 3)
       thor (~> 1.0)
     byebug (11.1.3)
+    cancan (1.6.10)
+    cancancan (1.17.0)
     capybara (3.37.1)
       addressable
       matrix
@@ -409,6 +411,8 @@ DEPENDENCIES
   brakeman
   bundler-audit
   byebug
+  cancan
+  cancancan
   capybara
   carrierwave (~> 1.0)
   carrierwave-aws (~> 1.0, >= 1.0.2)

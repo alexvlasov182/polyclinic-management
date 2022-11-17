@@ -27,7 +27,7 @@ Rails.application.routes.draw do
 
   devise_for :doctors, controllers: {
     sessions: 'doctors/sessions',
-    passwords: 'users/passwords',
+    passwords: 'doctors/passwords',
     registrations: 'doctors/registrations',
   }
 
@@ -48,6 +48,9 @@ Rails.application.routes.draw do
   authenticated :admin_user do
     root 'admin_users#index', as: :authenticated_admin_user_root
   end
+
+  match '/404', to: 'errors#not_found', via: :all
+  match '/500', to: 'errors#internal_server_error', via: :all
 
   root 'home#index'
 end

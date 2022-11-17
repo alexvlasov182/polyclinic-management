@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:full_name, :email, :phone, :password, :password_confirmation) }
+    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:full_name, :phone, :password) }
     devise_parameter_sanitizer.permit(:account_update) do |u|
       u.permit(:full_name, :phone, :email, :password, :current_password)
     end
@@ -19,5 +19,9 @@ class ApplicationController < ActionController::Base
     when User
       users_path
     end
+  end
+
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, alert: exception.message
   end
 end

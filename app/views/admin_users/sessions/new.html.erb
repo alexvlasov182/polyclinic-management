@@ -4,11 +4,11 @@
     <h1 class="h3 mb-3 font-weight-normal text-center">Sign in Admin</h1>
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-inputs">
-        <%= f.input :email,
+        <%= f.input :phone,
                     required: false,
                     autofocus: true,
                     label: false,
-                    input_html: { autocomplete: "Email address" }, class: 'sr-only', placeholder: 'Email address' %>
+                    input_html: { autocomplete: "Phone" }, class: 'sr-only', placeholder: 'Phone' %>
         <%= f.input :password,
                     required: false,
                     label: false,
