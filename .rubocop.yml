@@ -190,3 +190,9 @@ RSpec/NestedGroups:
 
 Rails/I18nLocaleTexts:
   Enabled: false
+
+RSpec/InstanceVariable:
+  Enabled: false
+
+RSpec/ExpectInHook:
+  Enabled: false

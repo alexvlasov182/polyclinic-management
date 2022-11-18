@@ -4,7 +4,7 @@
 
 <div class="row featurette card-body">
   <div class="col-md-12">
-    <h2 class="display-5 font-italic">Hello dear <%= current_user.full_name%> <span class="text-muted">It'll blow your mind.</span></h2>
+    <h2 class="display-5 font-italic">Hello dear <%= current_user.full_name%></span></h2>
     <% if @appointments.blank? %>
       <p>You don't have any appointment</p>
     <% else %>
