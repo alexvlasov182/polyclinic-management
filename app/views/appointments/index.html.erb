@@ -27,7 +27,7 @@
 
             </td>
             <td class="table-danger">
-              <%= appointment.appointment_date.to_s(:long) %>
+              <%= appointment.appointment_date&.to_s(:long) %>
 
             </td>
             <td class="table-warning">

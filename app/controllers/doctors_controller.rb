@@ -34,5 +34,4 @@ class DoctorsController < ApplicationController
   def set_doctor_item
     @doctor = Doctor.find(params[:id])
   end
-
 end
