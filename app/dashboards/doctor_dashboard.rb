@@ -10,6 +10,7 @@ class DoctorDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     appointments: Field::HasMany,
+    main_image: Field::String,
     category: Field::BelongsTo,
     attachment_attachment: Field::HasOne,
     attachment_blob: Field::HasOne,
@@ -58,6 +59,7 @@ class DoctorDashboard < Administrate::BaseDashboard
     full_name
     phone
     email
+    main_image
     password
     password_confirmation
   ].freeze

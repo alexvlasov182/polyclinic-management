@@ -4,13 +4,15 @@ class Doctor < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  mount_uploader :main_image, ImageUploader
+
   belongs_to :category
   has_many :appointments, dependent: :destroy
   has_many :users, through: :appointments
   has_one_attached :attachment
 
-  # validates :phone, presence: true, uniqueness: true
-  # validates :full_name, presence: true
+  validates :phone, presence: true, uniqueness: true
+  validates :full_name, presence: true
 
   def email_required?
     false
