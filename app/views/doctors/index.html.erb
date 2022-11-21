@@ -1,48 +1,35 @@
 <h1 class="display-3 text-center main-title mt-4">Doctors public page</h1>
 
-<ul class="navbar-nav mt-5 text-right">
-  <% if user_signed_in? %>
-    <li class="nav-item">
-      <%= link_to('Logout', destroy_user_session_path, method: :delete, class: 'btn btn-primary btn-lg') %>
-    </li>
-  <% elsif admin_user_signed_in? %>
-    <li class="nav-item">
-      <%= link_to('Logout', destroy_admin_user_session_path, method: :delete, class: 'btn btn-primary btn-lg') %>
-    </li>
-  <% elsif doctor_signed_in? %>
-    <li class="nav-item">
-      <%= link_to('Logout', destroy_doctor_session_path, method: :delete, class: 'btn btn-primary btn-lg') %>
-    </li>
-  <% end %>
-</ul>
+<%= render 'users/shared/logout_file' %>
+
 <div class="row featurette card-body mt-4">
   <div class="col-md-7">
-    <h2 class="featurette-heading">Hello dear <%= current_doctor.full_name%></h2>
-    <p class="lead">For more than 100 years, Our Medical Center has been driven by a commitment to care for all people, regardless of their ability to pay, providing not only traditional medical care, but also programs and services that wrap around that care to enhance overall health. All of this supports our mission to provide exceptional care, without exception. </p>
+    <h2 class="featurette-heading">Hello dear <%= current_doctor.full_name %></h2>
+    <p class="lead">For more than 100 years, Our Medical Center has been driven by a commitment to care for all people,
+      regardless of their ability to pay, providing not only traditional medical care, but also programs and services
+      that wrap around that care to enhance overall health. All of this supports our mission to provide exceptional
+      care, without exception. </p>
     <div class="custom-btn-image">
       <%= link_to "Enter your profile", doctor_path(@doctor), class: "btn btn-success btn-lg text-white" %>
     </div>
   </div>
   <div class="col-md-5">
-    <%	if @doctor.main_image?  %>
+    <% if @doctor.main_image? %>
       <%= image_tag @doctor.main_image.url, height: 400, width: 600, class: 'login-img' %>
     <% else %>
       <%= image_tag "user-empty.png", height: 400, class: 'login-img' %>
     <% end %>
-    <div class="">
+    <div>
       <%= form_for(@doctor) do |f| %>
-
         <div class="form-group mt-2">
           <label class="btn btn-primary btn-block">
-            Upload a main image file <%=	f.file_field :main_image, style: 'display: none;' %>
+            Upload a main image file <%= f.file_field :main_image, style: 'display: none;' %>
           </label>
         </div>
-
         <div class="form-group">
           <%= f.submit 'Save photo', class: "btn btn-primary btn-block" %>
         </div>
       <% end %>
     </div>
   </div>
-
 </div>

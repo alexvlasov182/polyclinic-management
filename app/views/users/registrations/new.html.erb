@@ -2,7 +2,6 @@
   <div class="form-signin">
     <%= image_tag "biplane.svg", height: 100, class: 'login-img' %>
     <h2 class="h3 mb-3 font-weight-normal text-center">Sign up</h2>
-
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
       <%= f.input :full_name,
@@ -27,13 +26,11 @@
                   required: false,
                   input_html: { autocomplete: "new-password" },
                   placeholder: 'Password confirmation', class: 'sr-only'
-
       %>
       <div class="form-actions">
         <%= f.button :submit, "Sign up", class: 'btn btn-primary btn-lg btn-block mt-3' %>
       </div>
     <% end %>
-
     <%= render "devise/shared/links" %>
     <%=	 link_to 'Go back', root_path %>
   </div>

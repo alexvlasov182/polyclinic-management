@@ -1,14 +1,20 @@
 <%= render 'shared/navbar' %>
-<main role="main">
 
+<main role="main">
   <div class="jumbotron">
     <div class="container">
       <h1 class="display-3 text-center main-title">Welcome to our Polyclinic Management system, dear guest!</h1>
-      <p class="text-center">Since our founding in 1917, The Polyclinic has focused on one mission — promoting the health of our patients through personalized care. We’re able to deliver on this because our doctors are in charge. And that gives them the power to put patients first.
+      <p class="text-center">Since our founding in 1917, The Polyclinic has focused on one mission — promoting the
+        health of our patients through personalized care. We’re able to deliver on this because our doctors are in
+        charge. And that gives them the power to put patients first.
 
-        Because of this, we’ve attracted more than 200 of the area’s most respected physicians and advanced practice clinicians. We’re also one of the largest multispecialty clinics in the Puget Sound region, with more than 12 locations in greater Seattle.
+        Because of this, we’ve attracted more than 200 of the area’s most respected physicians and advanced practice
+        clinicians. We’re also one of the largest multispecialty clinics in the Puget Sound region, with more than 12
+        locations in greater Seattle.
 
-        From pediatrics, family practice and internal medicine doctors to specialists and surgeons, we offer a single doorway to meeting your health care needs. Our care teams work closely together with one goal in mind — doing what’s right for you.</p>
+        From pediatrics, family practice and internal medicine doctors to specialists and surgeons, we offer a single
+        doorway to meeting your health care needs. Our care teams work closely together with one goal in mind — doing
+        what’s right for you.</p>
       <div class="col text-center">
         <%= link_to "Patient Siginup", new_user_registration_path, class: 'btn btn-primary' %>
       </div>
@@ -19,25 +25,28 @@
     <div class="row">
       <div class="col-md-4 card-body">
         <h2>For patient</h2>
-        <p>A patient is any recipient of health care services that are performed by healthcare professionals. The patient is most often ill or injured and in need of treatment by a physician, nurse, optometrist, dentist, veterinarian, or other health care provider. </p>
+        <p>A patient is any recipient of health care services that are performed by healthcare professionals. The
+          patient is most often ill or injured and in need of treatment by a physician, nurse, optometrist, dentist,
+          veterinarian, or other health care provider. </p>
         <%= link_to "Patient Signin", user_session_path, class: 'btn btn-info' %>
       </div>
       <div class="col-md-4 card-body">
         <h2>For doctors</h2>
-        <p>A doctor is someone who is experienced and certified to practice medicine to help maintain or restore physical and mental health. A doctor is tasked with interacting with patients, diagnosing medical problems and successfully treating illness or injury.</p>
+        <p>A doctor is someone who is experienced and certified to practice medicine to help maintain or restore
+          physical and mental health. A doctor is tasked with interacting with patients, diagnosing medical problems and
+          successfully treating illness or injury.</p>
         <%= link_to "Doctor Signin", doctor_session_path, class: 'btn btn-info' %>
       </div>
       <div class="col-md-4 card-body">
         <h2>For admins</h2>
-        <p>Administrators support the smooth running of offices by carrying out clerical tasks and projects. As an administrator in the construction industry, you could be organising project meetings. You'd be typing up documents, responding to business enquiries</p>
+        <p>Administrators support the smooth running of offices by carrying out clerical tasks and projects. As an
+          administrator in the construction industry, you could be organising project meetings. You'd be typing up
+          documents, responding to business enquiries</p>
         <%= link_to "Admin Signin", new_admin_user_session_path, class: 'btn btn-dark' %>
       </div>
     </div>
-
     <hr>
-
   </div>
-
 </main>
 
 <footer class="container">
