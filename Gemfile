@@ -1,8 +1,6 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.1.2'
-
 gem 'rails', '~> 7.0.3', '>= 7.0.3.1'
 gem 'sprockets-rails'
 gem 'pg', '>= 0.18', '< 2.0'
@@ -63,3 +61,5 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
+
+ruby '3.1.2'
