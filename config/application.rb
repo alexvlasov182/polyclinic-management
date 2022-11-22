@@ -10,6 +10,5 @@ module PolyclinicManagement
     config.load_defaults 7.0
     config.exceptions_app = routes
     config.secret_key_base = ENV.fetch('SECRET_KEY_BASE')
-    config.assets.compile = false
   end
 end
