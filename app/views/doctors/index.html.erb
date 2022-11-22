@@ -15,9 +15,9 @@
   </div>
   <div class="col-md-5">
     <% if @doctor.main_image? %>
-      <%= image_tag @doctor.main_image.url, height: 400, width: 600, class: 'login-img' %>
+      <%= image_tag @doctor.main_image.url, height: 400, width: 400, class: 'login-img img-round' %>
     <% else %>
-      <%= image_tag "user-empty.png", height: 400, class: 'login-img' %>
+      <%= image_tag "doctor-empty.jpeg", height: 400, width: 350, class: 'login-img img-round' %>
     <% end %>
     <div>
       <%= form_for(@doctor) do |f| %>
