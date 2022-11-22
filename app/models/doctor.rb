@@ -6,7 +6,7 @@ class Doctor < ApplicationRecord
 
   mount_uploader :main_image, ImageUploader
 
-  #belongs_to :category
+  belongs_to :category
   has_many :appointments, dependent: :destroy
   has_many :users, through: :appointments
   has_one_attached :attachment
