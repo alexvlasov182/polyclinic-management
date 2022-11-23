@@ -9,6 +9,6 @@ module PolyclinicManagement
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
     config.exceptions_app = routes
-    config.secret_key_base = ENV.fetch('SECRET_KEY_BASE')
+    # config.secret_key_base = ENV.fetch('SECRET_KEY_BASE')
   end
 end
