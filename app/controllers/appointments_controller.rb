@@ -2,7 +2,7 @@ class AppointmentsController < ApplicationController
   before_action :authenticate_user!, only: %i[create destroy]
 
   def index
-    @user = current_user || current_doctor
+    @user = current_user
     @appointments = @user.appointments
     @appointment = @user.appointments.find_by(params[:id])
     if @appointments.blank?
@@ -28,7 +28,7 @@ class AppointmentsController < ApplicationController
     @appointment = current_user.appointments.new(appointment_params)
     if @appointment.save
       redirect_to @appointment
-      flash.now[:notice] = 'Your appointment was successfully created'
+      flash[:notice] = 'Your appointment was successfully created'
     else
       render :new, alert: 'An error has occurred while creating an appointment'
     end

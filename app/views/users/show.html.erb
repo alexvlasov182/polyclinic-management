@@ -17,7 +17,7 @@
     <div class="container">
       <h2 class="text-center mb-4">Select your doctor</h2>
       <div class="row">
-        <% @doctors.each do |doctor| %>
+        <% @display_doctors.each do |doctor| %>
           <div class="col-md-4">
             <div class="card mb-4 box-shadow">
               <% if doctor.main_image? %>

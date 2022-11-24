@@ -8,7 +8,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @doctors = Doctor.all
     @user = current_user
     @display_doctors = appointments_count
   end

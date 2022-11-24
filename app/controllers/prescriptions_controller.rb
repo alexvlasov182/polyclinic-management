@@ -9,7 +9,7 @@ class PrescriptionsController < ApplicationController
   end
 
   def show
-    @user = current_doctor || current_user
+    @user = current_doctor
     @prescription = Prescription.find(params[:id])
     @appointment = Appointment.find(@prescription.appointment_id)
   end
@@ -21,13 +21,13 @@ class PrescriptionsController < ApplicationController
   end
 
   def create
-    @user = current_doctor || current_user
+    @user = current_doctor
     @appointment = Appointment.find_by(id: params[:appointment_id])
     @prescription = Prescription.new(prescription_params)
 
     if @prescription.save
       redirect_to prescriptions_path
-      flash.now[:notice] = 'Your prescription was successfully created'
+      flash[:notice] = 'Your prescription was successfully created'
     else
       render :new, alert: 'An error has occurred while creating a prescription'
     end

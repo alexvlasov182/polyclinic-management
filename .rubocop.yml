@@ -196,3 +196,6 @@ RSpec/InstanceVariable:
 
 RSpec/ExpectInHook:
   Enabled: false
+
+Rails/ActionControllerFlashBeforeRender:
+  Enabled: false
